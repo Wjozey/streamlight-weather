@@ -62,6 +62,7 @@ if city_name:
         web_str = "![Alt Text]"+"(http://openweathermap.org/img/wn/"+str(res[6])+"@2x.png)"
         st.markdown(web_str)
         # Show Last 5 days data
+        st.map(pd.DataFrame({'lat' : [res[5]] , 'lon' : [res[4]]}, columns = ['lat','lon']))
 
 if city_name:
         show_hist = st.expander(label = 'Last 5 Days History')
@@ -85,4 +86,3 @@ if city_name:
             st.table(df)
             # st.line_chart(df, width=0, height=0, use_container_width=True)
 
-        st.map(pd.DataFrame({'lat' : [res[5]] , 'lon' : [res[4]]}, columns = ['lat','lon']))
